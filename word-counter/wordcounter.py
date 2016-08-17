@@ -1,10 +1,8 @@
 import sys
-import pdb
 import re
 
 def main():
     print "you have chosen to open the file : %s" %sys.argv[1]
-    pdb.set_trace()
     try:
         dictionary = {}
         f = open(sys.argv[1],'r')
