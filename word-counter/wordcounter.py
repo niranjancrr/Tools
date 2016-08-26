@@ -1,8 +1,20 @@
+'''
+
+This script takes a given filename as a parameter, parses the file and prints all the words and number of occurences of each word.
+
+'''
+
 import sys
 import re
 
 def main():
-    print "you have chosen to open the file : %s" %sys.argv[1]
+    
+    try:
+        print "you have chosen to open the file : %s" %sys.argv[1]
+    except:
+        print "Please execute the script as python word_counter.py <file_name>"
+        sys.exit()
+
     try:
         dictionary = {}
         f = open(sys.argv[1],'r')
