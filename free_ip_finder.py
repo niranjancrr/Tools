@@ -30,7 +30,8 @@ def main():
             destip = q.get()
             try:
                 print("\nexecuting ping from my machine to %s\n" %(destip))
-                op = subprocess.call(['ping','-c','5',destip])
+                #op = subprocess.call(['ping','-c','5',destip])
+                op = subprocess.call(['timeout','2','ping','-i','0.2','-c','5',destip],stdout=subprocess.PIPE)
                 if(int(op) == 0 ):
                     pingablelist.append(destip)
                     q.task_done()
@@ -55,11 +56,11 @@ def main():
     if flag == False:
         return 0
 
-    print "\n\n Please find the list of pingable devices in the : %sX network\n" %(sys.argv[1])
+    print "\n\n Please find the list of pingable devices in the : %sX network\n\n" %(sys.argv[1])
     sort_nicely(pingablelist)
     print pingablelist
 
-    print "\n\n Please find the list of nonpingable devices in the : %sX network\n" %(sys.argv[1])
+    print "\n\n Please find the list of nonpingable devices in the : %sX network\n\n" %(sys.argv[1])
     sort_nicely(nonpingablelist)
     print nonpingablelist
 
