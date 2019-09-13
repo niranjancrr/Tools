@@ -1,0 +1,6 @@
+python2.7 populate_switch_info.py
+ip="$(python2.7 ../dns.py "$1")"
+password="$(python2.7 tor-login.py $ip)"
+#password="$(python2.7 passwd.py)"
+echo "$(tput blink)Leaf IP is: " $ip $(tput sgr0)
+./interact $ip $password

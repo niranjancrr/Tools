@@ -1,0 +1,4 @@
+ip="$(python2.7 ../dns.py "$1")"
+echo ""
+echo "$(tput blink)APIC IP is: " $ip $(tput sgr0)
+python2.7 launch.py $ip

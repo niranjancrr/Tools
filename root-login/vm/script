@@ -1,0 +1,18 @@
+ip="$(python2.7 ../dns1.py "$1")"
+
+arr=( $ip )
+ip=${arr[0]}
+username=${arr[1]}
+password=${arr[2]}
+
+if [[ $ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+   echo
+else
+   ip="$(python2.7 ../dns.py "$1")"
+   username="root"
+   password="insieme"
+fi
+
+echo ""
+echo "$(tput blink)VM IP is: " $ip $(tput sgr0)
+./interact $ip $username $password

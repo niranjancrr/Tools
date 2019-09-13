@@ -1,0 +1,5 @@
+ip="$(python2.7 ../dns.py "$1")"
+password="$(python2.7 apic-login.py "$ip")"
+echo ""
+echo "$(tput blink)APIC IP is: " $ip $(tput sgr0)
+./interact $ip $password

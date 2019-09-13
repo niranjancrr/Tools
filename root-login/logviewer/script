@@ -1,0 +1,6 @@
+ip="$(python2.7 ../dns2.py "$1")"
+username="root"
+password="insieme"
+echo ""
+echo "$(tput blink)Apic Logviewer IP is: " $ip $(tput sgr0)
+./interact $ip $username $password

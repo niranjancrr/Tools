@@ -1,0 +1,3 @@
+password="$(python2.7 bleaf-login.py "$1")"
+#password="$(python passwd.py)"
+./interact "$1" $password

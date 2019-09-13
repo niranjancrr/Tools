@@ -1,0 +1,8 @@
+ip="$(python2.7 ../dns1.py "$1")"
+arr=( $ip )
+ip=${arr[0]}
+username=${arr[1]}
+password=${arr[2]}
+echo ""
+echo "$(tput blink)Vcenter IP is: " $ip $(tput sgr0)
+./interact $ip $username $password
